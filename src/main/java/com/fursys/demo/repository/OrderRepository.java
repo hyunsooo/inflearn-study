@@ -49,7 +49,7 @@ public class OrderRepository {
                 jpql += " and";
             }
 
-            jpql += " m.name like :name";
+            jpql += " m.name like concat('%', :name, '%')";
         }
 
         TypedQuery<Order> query = em.createQuery(jpql, Order.class).setMaxResults(1000);
